@@ -30,18 +30,14 @@ public class Jugador {
         if (valor1 < 0 || valor1 > 6 || valor2 < 0 || valor2 > 6){
             return null;
         }
-        if (tieneFichas()) {
-            return null;
-        }
+        int pendientes = fichas.size();
 
-        Iterator<Ficha> it = fichas.iterator();
-
-        while (it.hasNext()){
-            Ficha ficha = it.next();
-            if( ficha.getLadoA() == valor1 || ficha.getLadoA() == valor2 || ficha.getLadoB() == valor1 || ficha.getLadoB() == valor2 ){
-                it.remove();
+        for (int i = 0; i < pendientes; i++) {
+            Ficha ficha = fichas.poll();
+            if (ficha.getLadoA() == valor1 || ficha.getLadoA() == valor2 || ficha.getLadoB() == valor1 || ficha.getLadoB() == valor2) {
                 return ficha;
             }
+            fichas.add(ficha);
         }
        
         return null;
@@ -49,7 +45,7 @@ public class Jugador {
 
 
     public boolean tieneFichas() {
-        return fichas.isEmpty();
+        return !(fichas.isEmpty());
     }
 
     public int calcularPuntosRestantes() {
@@ -67,6 +63,6 @@ public class Jugador {
         String n_jugador = getNombre();
         String f_jugador = fichas.toString();
 
-        return n_jugador + f_jugador;
+        return n_jugador + " " + f_jugador;
     }
 }
