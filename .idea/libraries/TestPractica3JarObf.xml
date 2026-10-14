@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TestPractica3JarObf">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/TestPractica3JarObf.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
